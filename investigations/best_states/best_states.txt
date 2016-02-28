@@ -1,3 +1,4 @@
+RESULTS
 DE      921.0289855072464
 ME      990.0630213160333
 NH      1015.3247863247864
@@ -8,3 +9,7 @@ SC      1088.202286719437
 FL      1090.5640353298372
 CO      1105.823185582075
 NJ      1115.5262968299712
+
+
+REASONING
+I utilize the average of the rank of the hospitals in the State to derive the States that provide the best quality of care in the nation. That is a State with a group of high quality hospitals must provide a higher quality of care overall.
