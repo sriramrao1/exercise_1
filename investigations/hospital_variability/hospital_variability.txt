@@ -1,3 +1,4 @@
+RESULTS
 ED_1b   104.20430485069129      1 
 ED_2b   66.89394856603798       2 
 OP_18b  41.40893856801751       3 
@@ -8,3 +9,9 @@ OP_2    19.413897376810787      7
 OP_21   17.884597930756794      8  
 OP_20   16.702094819135198      9  
 CAC_3   15.356966361112027      10 
+
+
+REASONING
+Here I use the Standard Deviation of the raw scores of each measure or procedure to assess the variability in the scores for the same procedures performed at different hospitals. 
+I could not locate the exact range of the scores in the data dictionary. Hence I made an assumption that the raw scores provided across several procedures are over the same range of scores. The standard deviation values are then comparable across procedures.
+Based on ordering the procedures with the top 10 standard deviation values, we get the 10 procedures with the most variability between hospitals.
