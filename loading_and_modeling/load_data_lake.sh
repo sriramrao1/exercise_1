@@ -20,5 +20,5 @@ hdfs dfs -mkdir /user/w205/hospital_compare/surveyresponsesdata
 hdfs dfs -put hospitals.csv /user/w205/hospital_compare/hospitaldata
 hdfs dfs -put effective_care.csv /user/w205/hospital_compare/effectivecaredata
 hdfs dfs -put readmissions.csv  /user/w205/hospital_compare/readmissionsdata
-hdfs dfs -put Measures.csv /user/w205/hospital_compare/measuresdata
+hdfs dfs -put measures.csv /user/w205/hospital_compare/measuresdata
 hdfs dfs -put surveys_responses.csv /user/w205/hospital_compare/surveyresponsesdata
