@@ -1,2 +1,12 @@
+RESULTS
 0.10767957813957273
 
+REASONING
+The two parameters that we correlate to answer this question are:
+1.	The hospital evaluation scores provided by the evaluators by procedure. 
+2.	The survey result scores provided by the patients. 
+For the hospital evaluation ranking - we have already ranked the hospitals based on the procedure level scores. This is stored in the tblHospital table.
+To derive the survey ranking, we use the HCAHPS Base Score, HCAHPS Consistency Scores. The combined HCAHPS Base Score, HCAHPS Consistency Score is used by CMS to determine the Patient Experience of Care domain portion of the Medicare reimbursement. So we use that as the model to assess the survey responses. We rank the hospitals based on the combined survey score. This is stored in the tblSurveyResults.sql table.
+Please note that the survey results file (hvbp_hcahps_10_28_2015.csv) only provides data for 3041 hospitals as opposed to 4500+ hospital records in the “Timely and Effective Care - Hospital.csv” and “Readmissions and Deaths - Hospital.csv” files. Hence the correlation coefficient is being derived only for 3041 hospitals.
+The correlation coefficient is 0.10767957813957273. 
+This low value of the correlation coefficient indicates low positive correlation between hospital quality scores and patient survey responses.
