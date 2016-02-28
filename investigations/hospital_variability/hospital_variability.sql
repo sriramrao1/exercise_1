@@ -1,1 +1,1 @@
-select * from tblProcedure1 order by ProcedureScoreRank limit 10;
+select * from tblProcedure order by ProcedureScoreRank limit 10;
