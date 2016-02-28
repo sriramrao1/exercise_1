@@ -1,1 +1,1 @@
-select HospitalName, overallrank from tblHospital group by HospitalName order by overallrank limit 10;
+select HospitalName, overallrank from tblHospital order by overallrank limit 10;
