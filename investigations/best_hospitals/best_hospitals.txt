@@ -1,3 +1,4 @@
+RESULTS
 PINNACLE SPECIALTY HOSPITAL     1.0
 CHILDREN'S HOSPITAL OF MICHIGAN 20.0
 MILLER CHILDREN'S HOSPITAL      33.0
@@ -8,3 +9,28 @@ CONNECTICUT CHILDRENS MEDICAL CENTER    54.0
 CHILDREN'S HOSPITAL NMC 58.0
 CHILDREN'S MERCY  SOUTH 58.0
 MIDWEST ORTHOPEDIC SPECIALTY HOSPITAL   59.45454545454545
+
+ANALYTICAL REASONING LOGIC
+The Hospital Compare project provides several files with a number of measures to assess the quality of care at each of the hospitals assessed. 
+
+However for this exercise, I have chosen the “Effective Care” (Timely and Effective Care - Hospital.csv) set of measures and the “Readmission Death” (Readmissions and Deaths - Hospital.csv) set of measures to rank the hospitals.
+However, the logic for scores provided for “Effective Care” measures is totally different from those for the “Readmission Death” measures. For example, an effective care measure is AMI_10 (Statin at Discharge) where the best practice is to prescribe statin during discharge of a patient with Heart Attack. So if Statin was prescribed to the patient at the time of discharge by the hospital, a high score is provided to the hospital. On the contrary, a high score for a “Readmission Death” measure such as Acute Myocardial Infarction (AMI) 30-Day Mortality Rate indicates that the hospital has a high mortality rate for patients admitted to the hospital for AMI. 
+Due to this, we cannot directly sum up scores for the Effective Care and Readmission Death measures and use them for the best hospitals assessment.
+Therefore I have attempted to rank the hospitals separately for “Effective Care” measures and “Readmission Death” measures based on high scores for “Effective Care” measures and low scores for “Readmission Death” measures. 
+Effective Care
+Please see attached screenshot. The last two columns provide the raw score and rank of the hospital for the procedure. As you can see as the raw score increases, the hospital receives a better rank
+
+select providerid, hospitalname, state, procedureid, procedurescore, ProcedureNationalRank from tblHospitalProcedureScores where procedureid like '%OP_21%' order by ProcedureNationalRank limit 20;
+ 
+Readmission Death
+Please see attached screenshot. The last two columns provide the raw score and rank of the hospital for the procedure. As you can see as the raw score decreases, the hospital receives a better rank
+
+select providerid, hospitalname, state, procedureid, procedurescore, ProcedureNationalRank from tblHospitalProcedureScores where procedureid like '%MORT_30_AMI%' order by ProcedureNationalRank limit 20;
+ 
+Best Hospitals - Overall Ranking of the hospital
+What hospitals are models of high-quality care? That is, which hospitals have the most consistently high scores for a variety of procedures. 
+To assess the best quality hospital, we obtain a mean of the ranks obtained by the hospital for each of the procedures it performs. The overall mean rank of the hospitals are stored in the tblHospital table. 
+There are several items to note with this ranking mechanism:
+-	All procedures are weighted equally. So a hospital that receives first rank in a complex procedure such as heart surgery, is weighted the same as another hospital that receives first rank for flu treatment
+-	With the overall mean rank being derived as an average over the ranks of all procedures performed, a specialty hospital that performs one procedure exceptionally well will receive a higher overall rank than a general hospital that provides several procedures. In our analysis, the Children’s Hospitals and Surgical Specialty hospitals ranked high overall compared to other general hospitals.
+-	The ranking just accounts for the raw scores for the procedure and does not account for the complexity and number of procedures being performed. So a hospital that handles more complicated procedures or handles a large number of cases, does not deserve any special treatment.
