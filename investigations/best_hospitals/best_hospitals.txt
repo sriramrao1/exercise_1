@@ -18,12 +18,12 @@ However, the logic for scores provided for “Effective Care” measures is tota
 Due to this, we cannot directly sum up scores for the Effective Care and Readmission Death measures and use them for the best hospitals assessment.
 Therefore I have attempted to rank the hospitals separately for “Effective Care” measures and “Readmission Death” measures based on high scores for “Effective Care” measures and low scores for “Readmission Death” measures. 
 Effective Care
-Please see attached screenshot. The last two columns provide the raw score and rank of the hospital for the procedure. As you can see as the raw score increases, the hospital receives a better rank
+The last two columns provide the raw score and rank of the hospital for the procedure. As you can see as the raw score increases, the hospital receives a better rank
 
 select providerid, hospitalname, state, procedureid, procedurescore, ProcedureNationalRank from tblHospitalProcedureScores where procedureid like '%OP_21%' order by ProcedureNationalRank limit 20;
  
 Readmission Death
-Please see attached screenshot. The last two columns provide the raw score and rank of the hospital for the procedure. As you can see as the raw score decreases, the hospital receives a better rank
+The last two columns provide the raw score and rank of the hospital for the procedure. As you can see as the raw score decreases, the hospital receives a better rank
 
 select providerid, hospitalname, state, procedureid, procedurescore, ProcedureNationalRank from tblHospitalProcedureScores where procedureid like '%MORT_30_AMI%' order by ProcedureNationalRank limit 20;
  
